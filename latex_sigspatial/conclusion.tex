@@ -1,0 +1,10 @@
+% !TEX root = ./tileheat.tex
+\section{Conclusion}
+% What we did
+In this work, we propose and evaluate the use of heatmaps to analyze the request log for a geospatial service as well as to improve the creation time of a tile cache for this service. 
+As we have observed, heatmaps can be made predictive and aid in selecting a set of high traffic tiles. We applied our techniques to the request log of a production system and showed that substantial improvements over an existing method were attained. In particular, using our HEAT-D algorithm to compute a tile cache yields a $25\%$ improvement in the hit ratio for a reasonable time window of materialization. HEAT-D accurately predicts the popularity of tiles that are not requested in the training data by employing a heat diffusion process. 
+
+% Future work
+While our results improve on existing methods, for future work we plan to do a more thorough exploration of the parameter space of the algorithms HEAT-HW and HEAT-D to investigate if further improvements could be achieved. In addition, we plan to work on efficient methods for materializing the tiles selected by our algorithms as well as use the trend information from HEAT-HW to build a distributed cache that adapts to sudden spikes in load. 
+%Exploring efficient methods of materializing the tiles, given a plan computed by TileHeat, would bring the work full circle. 
+Finally, deploying TileHeat in a production environment and measuring the effect on latency remains as an important direction of future work.

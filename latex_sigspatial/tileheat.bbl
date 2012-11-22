@@ -1,0 +1,162 @@
+\begin{thebibliography}{10}
+
+\bibitem{templates}
+R.~Barrett, M.~Berry, T.~F. Chan, J.~Demmel, J.~Donato, J.~Dongarra,
+  V.~Eijkhout, R.~Pozo, C.~Romine, and H.~V. der Vorst.
+\newblock {\em Templates for the Solution of Linear Systems: Building Blocks
+  for Iterative Methods, 2nd Edition}.
+\newblock SIAM, Philadelphia, PA, 1994.
+
+\bibitem{chatfield88}
+C.~Chatfield and M.~Yar.
+\newblock Holt-winters forecasting: Some practical issues.
+\newblock {\em Journal of the Royal Statistical Society. Series D (The
+  Statistician)}, 37(2):pp. 129--140, 1988.
+
+\bibitem{CN07:SelfTuning10YrPaper}
+S.~Chaudhuri and V.~R. Narasayya.
+\newblock Self-tuning database systems: A decade of progress.
+\newblock In {\em Proc. VLDB}, pages 3--14, 2007.
+
+\bibitem{DFJ+96:SemanticCaching}
+S.~Dar, M.~J. Franklin, B.~T. J\'{o}nsson, D.~Srivastava, and M.~Tan.
+\newblock Semantic data caching and replacement.
+\newblock In {\em Proc. VLDB}, pages 330--341, 1996.
+
+\bibitem{DDT+01:DynamicContentAcceleration}
+A.~Datta, K.~Dutta, H.~M. Thomas, D.~E. VanderMeer, K.~Ramamritham, and
+  D.~Fishman.
+\newblock A comparative study of alternative middle tier caching solutions to
+  support dynamic web content acceleration.
+\newblock In {\em Proc. VLDB}, pages 667--670, 2001.
+
+\bibitem{decola93}
+L.~{De Cola}, N.~Montagne, L.~D. Cola, and N.~Montagne.
+\newblock {The pyramid system for multiscale raster analysis}.
+\newblock {\em Computers \&amp; Geosciences}, 19(10):1393--1404, 1993.
+
+\bibitem{dean04}
+J.~Dean and S.~Ghemawat.
+\newblock {MapReduce}: Simplified data processing on large clusters.
+\newblock In {\em Proc. OSDI}, pages 1--13, 2004.
+
+\bibitem{fisher07}
+D.~Fisher.
+\newblock Hotmap : Looking at geographic attention.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  13(6):1184--1191, 2007.
+
+\bibitem{garcia11}
+R.~Garcia, J.~P.~D. Castro, M.~J. Verdu, E.~Verdu, L.~M. Regueras, P.~Lopez,
+  R.~Garc\'{\i}a, J.~de~Castro, M.~Verd\'{u}, E.~Verd\'{u}, L.~M. Regueras, and
+  P.~L\'{o}pez.
+\newblock {An Adaptive Neural Network-Based Method for Tile Replacement in a
+  Web Map Cache}.
+\newblock In B.~Murgante, O.~Gervasi, A.~Iglesias, D.~Taniar, and B.~Apduhan,
+  editors, {\em Computational Science and Its Applications - ICCSA 2011},
+  volume 6782 of {\em Lecture Notes in Computer Science}, pages 76--91.
+  Springer Berlin / Heidelberg, 2011.
+
+\bibitem{GMA+08:Ferdinand}
+C.~Garrod, A.~Manjhi, A.~Ailamaki, B.~M. Maggs, T.~C. Mowry, C.~Olston, and
+  A.~Tomasic.
+\newblock Scalable query result caching for web applications.
+\newblock {\em PVLDB}, 1(1):550--561, 2008.
+
+\bibitem{GLR05:GoodEnough}
+H.~Guo, P.-{\AA}. Larson, and R.~Ramakrishnan.
+\newblock Caching with 'good enough' currency, consistency, and completeness.
+\newblock In {\em Proc. VLDB}, pages 457--468, 2005.
+
+\bibitem{JS94:2Q}
+T.~Johnson and D.~Shasha.
+\newblock 2q: A low overhead high performance buffer management replacement
+  algorithm.
+\newblock In {\em Proc. VLDB}, pages 439--450, 1994.
+
+\bibitem{KKK01:Prefetching}
+Y.-K. Kang, K.-C. Kim, and Y.-S. Kim.
+\newblock Probability-based tile pre-fetching and cache replacement algorithms
+  for web geographical information systems.
+\newblock In {\em Proc. ADBIS}, pages 127--140, 2001.
+
+\bibitem{KKK01:Prefetching2}
+Y.-S. Kim, K.-C. Kim, and S.~D. Kim.
+\newblock Prefetching tiled internet data using a neighbor selection markov
+  chain.
+\newblock In {\em Proc. IICS}, pages 103--115, 2001.
+
+\bibitem{LGZ04:MTCache}
+P.-{\AA}. Larson, J.~Goldstein, and J.~Zhou.
+\newblock Mtcache: Transparent mid-tier database caching in sql server.
+\newblock In {\em Proc. ICDE}, pages 177--188, 2004.
+
+\bibitem{LKK+02:Prefetching}
+D.~H. Lee, J.~S. Kim, S.~D. Kim, K.-C. Kim, Y.-S. Kim, and J.~Park.
+\newblock Adaptation of a neighbor selection markov chain for prefetching tiled
+  web gis data.
+\newblock In {\em Proc. ADVIS}, pages 213--222, 2002.
+
+\bibitem{LGXF12:SpatialPrefetching}
+R.~Li, R.~Guo, Z.~Xu, and W.~Feng.
+\newblock A prefetching model based on access popularity for geospatial data in
+  a cluster-based caching system.
+\newblock {\em International Journal of Geographical Information Science},
+  2012.
+
+\bibitem{lindegaard12}
+M.~Lindegaard.
+\newblock {Preseeding of topo\_skaermkort in GeoWebCache}.
+\newblock Technical report, KMS Kortforsyningen, 2012.
+
+\bibitem{LKM+02:DBCache}
+Q.~Luo, S.~Krishnamurthy, C.~Mohan, H.~Pirahesh, H.~Woo, B.~G. Lindsay, and
+  J.~F. Naughton.
+\newblock Middle-tier database caching for e-business.
+\newblock In {\em Proc. ACM SIGMOD}, pages 600--611, 2002.
+
+\bibitem{mbtile12}
+MapBox.
+\newblock {MBTiles specification}, 2011.
+
+\bibitem{MM03:ARC}
+N.~Megiddo and D.~S. Modha.
+\newblock Arc: A self-tuning, low overhead replacement cache.
+\newblock In {\em Proc. FAST}, pages 115--130, 2003.
+
+\bibitem{Moh01:WebCaching}
+C.~Mohan.
+\newblock Caching technologies for web applications.
+\newblock In {\em Proc. VLDB}, pages 726--, 2001.
+
+\bibitem{OOW93:LRU-K}
+E.~J. O'Neil, P.~E. O'Neil, and G.~Weikum.
+\newblock The lru-k page replacement algorithm for database disk buffering.
+\newblock In {\em Proc. SIGMOD}, pages 297--306, 1993.
+
+\bibitem{quinn10}
+S.~Quinn and M.~Gahegan.
+\newblock A predictive model for frequently viewed tiles in a web map.
+\newblock {\em Transactions in GIS}, 14(2):193--216, Apr. 2010.
+
+\bibitem{SWZ93:DiskCooling}
+P.~Scheuermann, G.~Weikum, and P.~Zabback.
+\newblock Adaptive load balancing in disk arrays.
+\newblock In {\em Proc. FODO}, pages 345--360, 1993.
+
+\bibitem{SAMP07:COLT}
+K.~Schnaitter, S.~Abiteboul, T.~Milo, and N.~Polyzotis.
+\newblock On-line index selection for shifting workloads.
+\newblock In {\em Proc. ICDEW, SMDB Workshop}, pages 459--468, 2007.
+
+\bibitem{talagala00}
+N.~Talagala, S.~Asami, D.~Patterson, and B.~Futernick.
+\newblock {The art of massive storage: a Web image archive}.
+\newblock {\em Computer}, 33(11):22--28, 2000.
+
+\bibitem{WHMZ94:COMFORT}
+G.~Weikum, C.~Hasse, A.~M\"{o}nkeberg, and P.~Zabback.
+\newblock The comfort automatic tuning project.
+\newblock {\em Inf. Syst.}, 19(5):381--432, 1994.
+
+\end{thebibliography}

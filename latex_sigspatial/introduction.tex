@@ -1,0 +1,38 @@
+% !TEX root = ./tileheat.tex
+\section{Introduction}
+
+% Situation
+Today geospatial web services are widely deployed on the web. A significant subset of these services can be queried using bounding box requests to retrieve geospatial data, either in raster or vector form, within a region. The classic example of such a service is Web Map Service (WMS). In WMS, results are typically computed on-the-fly by pulling data from a geospatial database. This strategy has the advantage that results are always up-to-date and it thus offers a great degree of flexibility and accuracy to clients of the service. At a high level, we can think of the service as applying a \emph{rendering function} to a set of matched base data to produce, e.g., a map image.
+
+% Problem
+Services that apply rendering functions in response to bounding box requests are often CPU- and I/O-intensive, with relatively high latency as a consequence. This is a problem because geospatial services are typically used interactively, and latency in excess of a few hundreds of milliseconds becomes noticeable. Even if the computation is not that expensive, the infrastructure available might not scale to many simultaneous users, if data is to be computed on demand. We know from our studies of government production services that may use as much as 30 seconds to compute a 256 x 256 pixel map image, which severely lowers the value of the service in an interactive scenario. On the other side, limiting the use of GIS to working with results that can be computed fast, does not generally seem like a good idea. While the issue of high latency can to a certain degree be dealt with by scaling up or out, such solutions do not come without a cost, e.g. increased power consumption and hardware costs. Instead of simply adding more resources, better algorithms can be developed to deal with high latency.
+
+% State of the art
+Real-world workloads contain significant amounts of repeated requests and often a strong skew in what is requested~\cite{fisher07,talagala00}. This offers an opportunity to replay the results of previous computations by placing geospatial results in a cache. A common approach to representing a set of geospatial results at multiple resolutions is to use a tiling scheme that divides a geographical data set into a hierarchical and finite set of \emph{tiles}~\cite{decola93}. Unfortunately, the drawback of this approach is that the set of tiles is potentially very large~\cite{garcia11}, as the number of tiles is exponential in the number of supported resolutions. It is common to fix the number of resolutions when dealing with tiles, and thus we assume a fixed set of resolutions. Even then, the sheer number of tiles makes computing and storing all of them difficult to manage.
+
+Two primary approaches have been suggested for dealing with the delivery of tiles to clients: \emph{online} and \emph{off-line}. The online approach attempts to mask the latency of computing tiles on-demand for a single user, by prefetching tiles based on predictions of future accesses given the user's current viewstate~\cite{KKK01:Prefetching,KKK01:Prefetching2,LKK+02:Prefetching}. The off-line approach is to materialize a large but polynomial number of tiles in advance that is expected to cover to the majority of user request in the near future. It is assumed that serving the materialized tiles from a cache will be less CPU- and I/O-intensive than computing them on demand. The main problem then becomes selecting a good set of tiles. 
+
+A drawback to the online approach is that although pre-fetching theoretically masks latency for a single user, it does not by itself decrease global concurrency, as tiles are still computed on demand. We speculate that this approach could even increase the average latency if view states are mispredicted. A drawback with materializing a set of tiles offline is that the tiles might not be up-to-date by the time they are requested, but this can be solved by invalidating the stale tiles. We will focus on the latter off-line approach in our work.
+
+The off-line approach takes a global view of the problem, and aims at predicting a ``good'' set of tiles, i.e., a set containing tiles that are likely to be requested by many users in the near future. We argue that these tiles should be materialized during a window of low load. This strategy avoids impacting latency negatively in the high load period, but holds the potential to reduce average latency because of pre-computation.
+
+% which in turn increases the average global latency, in order to decrease the latency for a particular user. 
+Methods in the literature use rule-based algorithms to select which tiles should be materialized ahead of time~\cite{quinn10}. The rules are based on \emph{a priori} knowledge of user behavior, so a drawback of these methods is that the rules do not adapt to changes in user behavior over time. In addition, rule-based methods are hard to adapt to shorter time windows of low load. As they offer only limited insight over which tiles are the most relevant among the tiles selected by the rules, it is hard to choose a good subset of tiles to be materialized under a time constraint.  
+% MVS: are there other rule-based approaches that we can cite? Does anybody cite Quinn and Gahegan?
+
+In this paper, we present an adaptive tile selection method, \emph{TileHeat}, which suffers significantly less from these drawbacks. TileHeat is based on  \emph{a posteriori} knowledge of user behavior gathered from historical usage of the geospatial web service. We investigate algorithms that predict the set of tiles that will be requested in time period $t + 1$, and that are trained using a log of requests for periods $t-n, t -n + 1, \ldots, t$. Our algorithms construct a set of $n$ spatial heatmaps of requests, one for each time period, and uses these to predict future requests. To avoid over-fitting the model to the training data, we use both exponential smoothing and heat dissipation on the constructed heatmaps. The output of our algorithms is a ranking of tiles based on predicted likelihood of access for the next time period. As such, the number of tiles to be pre-computed can be chosen according to the available time window of low load.	
+
+\minisec{Outline and Contributions}
+Our paper starts with a discussion of existing methodologies for tile caching (Section~\ref{sec:tile:caching}). Then the main \emph{contributions} of the paper follow:
+%
+\begin{itemize}
+
+\item We analyze a sample from the production log of The Digital Map Supply, a production geospatial web service maintained by the National Survey and Cadastre (KMS) in Denmark. In Section~\ref{sec:analysis}, we present our key observations of the workload, e.g. that the load curve follows a pattern with high load in the middle of the day, and low load in the rest of the day, and that the spatial distribution of requests is very stable over time.
+
+\item We present the general framework of TileHeat, and propose a set of algorithms for ranking tiles. The algorithms exploit the properties we have discovered in the analysis, namely by tracking and predicting the spatial distribution of requests using heatmaps (Section~\ref{sec:algorithms}).
+
+\item We present an experimental evaluation of the effectiveness of TileHeat. We observe an improvement of $25\%$ over the existing method used in the production system of KMS  for a set of tiles that can be materialized during an observed time window of low load (Section~\ref{sec:experiments}).
+
+\end{itemize}
+%
+We end the paper by reviewing additional related work (Section~\ref{sec:related}). 

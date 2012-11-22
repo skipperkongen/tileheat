@@ -1,0 +1,70 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+\begin{document}
+
+\def \borders {black!65}
+\def \cellborders {black}
+
+
+\begin{tikzpicture}[
+	x  = {(1cm,-.3cm)},
+        y  = {(1cm,.3cm)},
+        z  = {(0cm,1cm)},
+        scale = 1,
+        \borders]
+                    
+\tikzstyle{every node}=[black]
+
+% X and Y AXIS
+\begin{scope}[canvas is xy plane at z=0]
+	% x-axis
+	%\draw[->] (-0.4,-0.2) -- (6,-0.2) node (x-axis) [right] {$x$};
+	% y-axis
+	%\draw[->] (-0.2,-0.4) -- (-0.2,4.5) node (y-axis) [above] {$y$};
+\end{scope}
+
+% LEVEL 3
+\begin{scope}[canvas is yx plane at z=0]
+	\draw[\cellborders,step=1cm, very thin] (0,0) grid (4,4);
+\end{scope}
+
+% LEVEL 2
+\begin{scope}[canvas is yx plane at z=2]
+	\draw[\cellborders,step=1cm, very thin] (1,1) grid (3,3);
+	%\draw[\borders] (1,1) rectangle (3,3,);
+\end{scope}
+
+% LEVEL 1
+\begin{scope}[canvas is yx plane at z=4]
+	\draw[\cellborders, very thin] (1.5,1.5) rectangle (2.5,2.5);
+\end{scope}
+
+% PYRAMID
+\begin{scope}[canvas is xz plane at y=-0.2]
+	\draw[dashed] (-0.2,0) -- (4.2,0);
+	\draw[dashed] (-0.2,0) -- (4.2,7);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=4.2]
+	\draw[dashed] (-0.2,0) -- (4.2,0);
+	\draw[dashed] (4.2,0) -- (-.2,4.35);	
+\end{scope}
+\begin{scope}[canvas is yz plane at x=4.2]
+	\draw[dashed] (-0.2,0) -- (4.2,0);
+	\draw[dashed] (-0.2,0) -- (-0.2,7);
+\end{scope}
+\begin{scope}[canvas is yz plane at x=-.2]
+	\draw[dashed] (-0.2,0) -- (4.2,0);
+\end{scope}
+
+\end{tikzpicture}
+
+\end{document}

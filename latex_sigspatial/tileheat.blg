@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: tileheat.aux
+The style file: abbrv.bst
+Database file #1: tileheat.bib
+You've used 28 entries,
+            2118 wiz_defined-function locations,
+            674 strings with 8965 characters,
+and the built_in function-call counts, 12472 in all, are:
+= -- 1204
+> -- 632
+< -- 18
++ -- 252
+- -- 219
+* -- 872
+:= -- 1922
+add.period$ -- 84
+call.type$ -- 28
+change.case$ -- 191
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 497
+empty$ -- 955
+format.name$ -- 219
+if$ -- 2705
+int.to.chr$ -- 0
+int.to.str$ -- 28
+missing$ -- 27
+newline$ -- 142
+num.names$ -- 58
+pop$ -- 234
+preamble$ -- 1
+purify$ -- 163
+quote$ -- 0
+skip$ -- 403
+stack$ -- 0
+substring$ -- 819
+swap$ -- 188
+text.length$ -- 18
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 110
+warning$ -- 0
+while$ -- 117
+width$ -- 30
+write$ -- 308

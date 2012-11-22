@@ -1,0 +1,47 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{algpseudocode}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%\title{Brief Article}
+%\author{The Author}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+
+
+
+\begin{algorithmic}
+\Function{\texttt{GET}}{i,j,z}
+\If {$tile \lbrack i, j, z \rbrack \neq nil$}
+    \State \Return $tile \lbrack i, j, z \rbrack$
+ \Else
+    \State $tile \lbrack i, j, z \rbrack \gets \Call{\texttt{render}}{i,j,z}$
+    \State \Return $tile \lbrack i, j, z \rbrack$
+\EndIf 
+\EndFunction
+\end{algorithmic}
+
+\vspace{2ex}
+
+\begin{algorithmic}
+\Function{\texttt{PUT}}{basedata}
+    \State $tiles \gets \Call{\texttt{affected-by}}{basedata}$
+    \ForAll{$tile \in tiles$}
+         \State \Call{\texttt{invalidate}}{$tile$}
+    \EndFor
+    \State \Call{\texttt{store}}{$basedata$}
+
+\EndFunction
+\end{algorithmic}
+
+
+
+
+\end{document}  

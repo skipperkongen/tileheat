@@ -1,0 +1,22 @@
+% !TEX root = ./tileheat.tex
+\begin{abstract}
+Public geospatial services are now commonly available on the Web. These services often render
+maps to users by dividing the maps into tiles. Given that geospatial services experience significant
+user load, it is desirable to pre-compute tiles at a time of low load in order to increase overall
+performance. Based on our analysis of the request log of a public geospatial service provider,
+we observe that times of low load occur with a periodic pattern. 
+%This pattern supports that pre-computed tiles are refreshed during low load. 
+In addition, our analysis shows that tile access
+patterns exhibit strong spatial skew.
+
+Based on these observations, we propose an adaptive strategy restricting the set of tiles that
+are pre-computed to fit the low load time window. Ideally, the restricted tile set should deliver
+performance comparable to the full tile set. To achieve this result, tiles should be selected based on
+their expected popularity. Our key observation is that the popularity of a tile can be estimated by
+analyzing the tiles that users have previously requested. Our adaptive strategy constructs heatmaps
+of previous requests and uses this information to decide which tiles to pre-compute. We examine
+two alternative heuristics, one of which exploits that nearby tiles have a high likelihood of having
+similar popularity. We evaluate our methods against a real production workload, and observe that
+the latter heuristic achieves a 25\% increase in the hit ratio compared to current methods, 
+without pre-computing a larger set of tiles.
+\end{abstract}
